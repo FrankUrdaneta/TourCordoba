@@ -18,6 +18,8 @@
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <!-- Agrega esto en el head de tu HTML -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <link rel="stylesheet" href="./css/index.css" />
   </head>
@@ -34,7 +36,7 @@
       return colorClaro.toHexString(); // Convierte a formato hexadecimal
     }
     //Deberia crear 3 luces y 3 sombas basadas en mi color principal en el :root declarar los border radius tanto de las card como de los botones
-    const colorOriginal = "#2271ff";
+    const colorOriginal = "#0099cb";
     // Crear tres tonos claros
     const colorClaro20 = obtenerColorClaro(colorOriginal, 40);
     const colorClaro50 = obtenerColorClaro(colorOriginal, 30);
@@ -46,8 +48,12 @@
     const colorOscuro200 = oscurecerColor(colorOriginal, 20);
     const colorOscuro300 = oscurecerColor(colorOriginal, 30);
 
-    const colorAcentuado = oscurecerColor(colorOriginal, 40);
+    let colorAcentuado = oscurecerColor(colorOriginal, 40);
     const colorOscurecido = oscurecerColor(colorOriginal, 20);
+
+    if (colorAcentuado == "#000000") {
+      colorAcentuado = oscurecerColor(colorOriginal, 25);
+    }
 
     document.documentElement.style.setProperty(
       "--color-acentuado",
@@ -109,7 +115,7 @@
     </section>
 
     <!-- Contenedor principal utilizando Bootstrap -->
-    <section class="container-fluid">
+    <section class="container-fluid section_buscar">
       <!-- Sección de formulario -->
       <div class="row form_buscar">
         <!-- Columna izquierda con formulario (disposición horizontal en pantallas grandes) -->
@@ -200,7 +206,7 @@
     <!-- seccion mobile nuestra aplicacion -->
     <section class="container-fluid">
       <!-- Sección de la portada -->
-      <div class="row">
+      <div class="row mb-4">
         <!-- Columna derecha con la imagen -->
         <div class="col-md-5 div_img">
           <img
@@ -217,7 +223,7 @@
               Una aplicación para cada paso de tu viaje: ¡planificar viajes
               nunca ha sido tan fácil!
             </p>
-            <div class="container-fluid">
+            <div class="container-fluid jumbotrom_row">
               <div class="row">
                 <!-- Imagen 1 -->
                 <div class="col-md-4 mb-4">
@@ -331,5 +337,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+      // Configuración básica de ScrollReveal
+      ScrollReveal().reveal(".seccion", {
+        duration: 1000, // Duración de la animación en milisegundos
+        origin: "bottom", // Desde dónde empieza la animación ('bottom', 'top', 'left', 'right')
+        distance: "20px", // Distancia de desplazamiento
+        delay: 200, // Retraso antes de que comience la animación
+        easing: "ease-out", // Tipo de animación ('linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out')
+        reset: true, // Si las animaciones deben reiniciarse cada vez que se desplaza hacia arriba
+      });
+    </script>
   </body>
 </html>
