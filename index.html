@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>TourCordoba</title>
+    <!-- Agregar los enlaces a los estilos de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/tinycolor2"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <script>
+    //Función para oscurecer el color
+    function oscurecerColor(color, factor) {
+      const colorOriginal = tinycolor(color);
+      const colorOscurecido = colorOriginal.darken(factor);
+      return colorOscurecido.toHexString(); // Convierte a formato hexadecimal
+    }
+    function obtenerColorClaro(color, factor) {
+      const colorOriginal = tinycolor(color);
+      const colorClaro = colorOriginal.lighten(factor);
+      return colorClaro.toHexString(); // Convierte a formato hexadecimal
+    }
+    //Deberia crear 3 luces y 3 sombas basadas en mi color principal en el :root declarar los border radius tanto de las card como de los botones
+    const colorOriginal = "#2271ff";
+    // Crear tres tonos claros
+    const colorClaro20 = obtenerColorClaro(colorOriginal, 40);
+    const colorClaro50 = obtenerColorClaro(colorOriginal, 30);
+    const colorClaro100 = obtenerColorClaro(colorOriginal, 20);
+    const colorClaro200 = obtenerColorClaro(colorOriginal, 10);
+
+    // Crear tres tonos oscuros
+    const colorOscuro100 = oscurecerColor(colorOriginal, 10);
+    const colorOscuro200 = oscurecerColor(colorOriginal, 20);
+    const colorOscuro300 = oscurecerColor(colorOriginal, 30);
+
+    const colorAcentuado = oscurecerColor(colorOriginal, 40);
+    const colorOscurecido = oscurecerColor(colorOriginal, 20);
+
+    document.documentElement.style.setProperty(
+      "--color-acentuado",
+      colorAcentuado
+    );
+    document.documentElement.style.setProperty("--primary", colorOriginal);
+    document.documentElement.style.setProperty("--color-ligth50", colorClaro50);
+    document.documentElement.style.setProperty("--color-ligth20", colorClaro20);
+    document.documentElement.style.setProperty(
+      "--color-ligth100",
+      colorClaro100
+    );
+    document.documentElement.style.setProperty(
+      "--color-ligth200",
+      colorClaro200
+    );
+
+    document.documentElement.style.setProperty(
+      "--color-oscuro100",
+      colorOscuro100
+    );
+    document.documentElement.style.setProperty(
+      "--color-oscuro200",
+      colorOscuro200
+    );
+    document.documentElement.style.setProperty(
+      "--color-oscuro400",
+      colorOscuro300
+    );
+
+    document.documentElement.style.setProperty(
+      "--primary-hover",
+      colorOscurecido
+    );
+  </script>
+  <body>
+    <!-- Contenedor principal utilizando Bootstrap -->
+    <section class="container-fluid">
+      <div class="content_img"></div>
+      <!-- Sección de la portada -->
+      <div class="row">
+        <!-- Columna izquierda con título y subtítulo -->
+        <div class="col-md-6">
+          <div class="jumbotron">
+            <h1 class="display-4">Viaja sin preocupaciones</h1>
+            <p class="lead">Descubre el Mundo a Tu Manera</p>
+          </div>
+        </div>
+
+        <!-- Columna derecha con la imagen -->
+        <div class="col-md-6 div_img">
+          <img
+            src="./images/Portada.png"
+            class="img-fluid drop"
+            alt="Imagen de portada"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenedor principal utilizando Bootstrap -->
+    <section class="container-fluid">
+      <!-- Sección de formulario -->
+      <div class="row form_buscar">
+        <!-- Columna izquierda con formulario (disposición horizontal en pantallas grandes) -->
+        <div class="col-md-4">
+          <form>
+            <!-- Campo de origen -->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text icon_input">
+                    <!-- Ícono para Ciudad de Origen -->
+                    <i class="fas fa-location-arrow"></i>
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="origen"
+                  name="origen"
+                  placeholder="Ciudad de origen"
+                  list="ciudades"
+                />
+              </div>
+              <datalist id="ciudades">
+                <option value="Ciudad A"></option>
+                <option value="Ciudad B"></option>
+                <option value="Ciudad C">
+                  <!-- Agregar más opciones según sea necesario -->
+                </option>
+              </datalist>
+            </div>
+          </form>
+        </div>
+
+        <!-- Columna central con formulario (disposición horizontal en pantallas grandes) -->
+        <div class="col-md-4">
+          <form>
+            <!-- Campo de destino -->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text icon_input">
+                    <!-- Ícono para Ciudad de Destino -->
+                    <i class="fas fa-map-marker-alt"></i>
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="destino"
+                  name="destino"
+                  placeholder="Ciudad de destino"
+                  list="ciudades"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Columna derecha con formulario (disposición horizontal en pantallas grandes) -->
+        <div class="col-md-4">
+          <form>
+            <!-- Campo de fecha -->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text icon_input">
+                    <!-- Ícono para Fecha -->
+                    <i class="fas fa-calendar-alt"></i>
+                  </span>
+                </div>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="fecha"
+                  name="fecha"
+                  value="<?php echo date('Y-m-d'); ?>"
+                />
+              </div>
+            </div>
+            <!-- Botón de búsqueda -->
+            <button type="submit" class="btn_buscar">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- seccion mobile nuestra aplicacion -->
+    <section class="container-fluid">
+      <!-- Sección de la portada -->
+      <div class="row">
+        <!-- Columna derecha con la imagen -->
+        <div class="col-md-5 div_img">
+          <img
+            src="./images/LoginImg.png"
+            class="img-responsive drop LoginImg"
+            alt="Imagen de portada"
+          />
+        </div>
+        <!-- Columna izquierda con título y subtítulo -->
+        <div class="col-md-7">
+          <div class="jumbotron">
+            <h1 class="display-5">Nuestra aplicación gratuita</h1>
+            <p class="lead2">
+              Una aplicación para cada paso de tu viaje: ¡planificar viajes
+              nunca ha sido tan fácil!
+            </p>
+            <div class="container-fluid">
+              <div class="row">
+                <!-- Imagen 1 -->
+                <div class="col-md-4 mb-4">
+                  <h6>Reservas rapidas</h6>
+                  <svg
+                    class="responsive-img drop"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    style="fill: var(--primary)"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm3.293 14.707L11 12.414V6h2v5.586l3.707 3.707-1.414 1.414z"
+                    ></path>
+                  </svg>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="col-md-4 mb-4">
+                  <h6>Seguridad y Confianza</h6>
+
+                  <svg
+                    class="responsive-img drop"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    style="fill: var(--primary)"
+                  >
+                    <path
+                      d="m20.43 5.76-8-3.56a1 1 0 0 0-.82 0l-8 3.56a1 1 0 0 0-.59.9c0 2.37.44 10.8 8.51 15.11a1 1 0 0 0 1 0c8-4.3 8.58-12.71 8.57-15.1a1 1 0 0 0-.67-.91zm-4.43 7H8v-2h8z"
+                    ></path>
+                  </svg>
+                </div>
+
+                <!-- Imagen 3 -->
+                <div class="col-md-4 mb-4">
+                  <h6>Actualizacion en vivo</h6>
+
+                  <svg
+                    class="responsive-img drop"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    style="fill: var(--primary)"
+                  >
+                    <path
+                      d="M4.626 8.878a7.937 7.937 0 0 1 1.71-2.541 7.92 7.92 0 0 1 2.542-1.71 8.12 8.12 0 0 1 6.13-.041A2.49 2.49 0 0 0 17.5 7C18.886 7 20 5.886 20 4.5S18.886 2 17.5 2c-.689 0-1.312.276-1.763.725-2.431-.973-5.223-.958-7.635.059-1.19.5-2.26 1.22-3.18 2.139A9.98 9.98 0 0 0 2 12h2c0-1.086.211-2.136.626-3.122zm14.747 6.244c-.401.952-.977 1.808-1.71 2.541s-1.589 1.309-2.542 1.71a8.12 8.12 0 0 1-6.13.041A2.488 2.488 0 0 0 6.5 17C5.114 17 4 18.114 4 19.5S5.114 22 6.5 22c.689 0 1.312-.276 1.763-.725A9.973 9.973 0 0 0 12 22a9.983 9.983 0 0 0 9.217-6.102A9.992 9.992 0 0 0 22 12h-2a7.993 7.993 0 0 1-.627 3.122z"
+                    ></path>
+                    <path
+                      d="M12 7.462c-2.502 0-4.538 2.036-4.538 4.538S9.498 16.538 12 16.538c2.502 0 4.538-2.036 4.538-4.538S14.502 7.462 12 7.462z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección responsive con tres imágenes y texto -->
+    <section class="container-fluid section-container mobile_view">
+      <div class="row">
+        <!-- Imagen 1 -->
+        <div class="col-md-4 mb-4 img_group">
+          <h3>Compara Boletos baratos con autobuses</h3>
+          <p>Con nosotros, puedes comprar Boletos de autobús.</p>
+          <img
+            src="./images/horario.png"
+            alt="Imagen 1"
+            class="responsive-img drop"
+          />
+        </div>
+
+        <!-- Imagen 2 -->
+        <div class="col-md-4 mb-4 img_group">
+          <h3>Encuentra boletos baratos con facilidad</h3>
+          <p>
+            ¡Busca y reserva boletos de autobús! Descubre las mejores opciones
+            para ti.
+          </p>
+          <img
+            src="./images/encuentra.png"
+            alt="Imagen 2"
+            class="responsive-img drop"
+          />
+        </div>
+
+        <!-- Imagen 3 -->
+        <div class="col-md-4 mb-4 img_group">
+          <h3>Horarios y boletos para todas tus necesidades de viaje</h3>
+          <p>
+            Nunca antes había sido tan fácil reservar un boleto de , autobús.
+          </p>
+          <img
+            src="./images/horarios_siempre.png"
+            alt="Imagen 3"
+            class="responsive-img drop"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- Agregar los scripts de Bootstrap al final del cuerpo del documento -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

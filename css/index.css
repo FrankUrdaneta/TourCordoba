@@ -1,0 +1,175 @@
+:root {
+  --sombra-btn: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 8px 16px rgba(0, 0, 0, 0.2);
+  --sombra-card: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  --sombra-text: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  --sombra-btn-con-color: var(--sombra-btn),
+    0 0 0 30px var(--color-sombra) inset;
+  --radius-btn: 10px;
+  --radius-card: 1rem;
+  --sombra-img: drop-shadow(5px 5px 10px #000);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Baloo 2";
+}
+
+.div_img {
+  display: flex;
+  justify-content: center;
+}
+.display-4 {
+  font-weight: bold;
+  text-shadow: var(--sombra-text);
+  /* color: var(--color-oscuro400); */
+  color: white;
+  font-size: 3.5rem;
+}
+.lead {
+  text-shadow: var(--sombra-text);
+  /* color: var(--color-oscuro400); */
+  color: white;
+}
+.lead2 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-shadow: var(--sombra-text);
+  color: var(--color-oscuro400);
+}
+.jumbotron {
+  background: transparent;
+}
+.content_img {
+  content: "";
+  position: absolute;
+  height: 103%;
+  width: 150%;
+  top: -20rem;
+  right: 0rem;
+  transform: translateX(0px);
+  background-image: linear-gradient(
+    -45deg,
+    var(--primary) 0%,
+    var(--color-ligth100) 200%
+  );
+  transition: 1.8s ease-in-out;
+  border-radius: 50%;
+  animation: gradient 6s ease infinite;
+}
+.form-control {
+  max-width: 280px;
+  max-height: 50px;
+  border-radius: var(--radius-btn);
+  border: none;
+  background-color: var(--color-ligth20);
+  box-shadow: var(--sombra-btn);
+  height: 50px;
+  color: var(--color-acentuado);
+  font-size: 16px;
+}
+.btn_buscar {
+  max-width: 318px;
+  max-height: 50px;
+  border-radius: var(--radius-btn);
+  background-color: var(--primary);
+  box-shadow: var(--sombra-btn);
+  color: white;
+  border: none;
+  width: 318px;
+  height: 50px;
+  font-size: 20px;
+}
+
+.form_buscar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 1rem;
+  border-radius: var(--radius-card);
+  margin: 1rem;
+  position: relative;
+  background: var(--color-ligth50); /* Fondo semitransparente */
+  backdrop-filter: blur(10px); /* Efecto de vidrio */
+  -webkit-backdrop-filter: blur(
+    10px
+  ); /* Efecto de vidrio en navegadores WebKit (Safari, Chrome) */
+
+  /* Otros estilos y gradientes si es necesario */
+  /* ... */
+}
+
+label {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--color-oscuro400);
+}
+
+.section-container {
+  padding: 4rem;
+  background: var(--color-ligth20);
+}
+
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+}
+h3 {
+  color: var(--color-acentuado);
+}
+h1 {
+  margin-bottom: 0 !important;
+}
+p {
+  color: var(--color-acentuado);
+}
+.img_group {
+  padding: 2rem;
+}
+.drop {
+  filter: var(--sombra-img);
+}
+
+.display-5 {
+  font-weight: bold;
+  text-shadow: var(--sombra-text);
+  color: var(--color-acentuado);
+  font-size: 3rem;
+}
+.LoginImg {
+  max-width: 200px;
+  margin-top: 4rem;
+}
+.mobile_view {
+  background-color: var(--color-ligth20);
+}
+.icon_input {
+  border-radius: 10px 0px 0 10px;
+  border: none;
+  background-color: var(--color-ligth200);
+  box-shadow: var(--sombra-btn);
+  color: white;
+}
+/* Estilos para pantallas pequeñas (modo teléfono) */
+@media only screen and (max-width: 767px) {
+  .btn_buscar {
+    width: 236px; /* Hacer que el ancho sea del 100% para adaptarse a pantallas más pequeñas */
+  }
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  .display-5 {
+    font-size: 2rem;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
